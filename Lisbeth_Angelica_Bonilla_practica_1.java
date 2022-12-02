@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Hamming_2 {
+public class Lisbeth_Angelica_Bonilla_practica_1 {
 
     public static void main(String[] args) {
 
