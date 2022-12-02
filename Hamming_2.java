@@ -7,38 +7,44 @@ import java.util.Scanner;
 public class Hamming_2 {
 
     public static void main(String[] args) {
-        //MENSAJE******************************************************************
+
         System.out.println("Inserta los bits que quieras que tenga el mensaje"
                 + " no mayor de 27: ");
 
-        //VARIABLES---------------------------------------------------------------//   
+        //VARIABLES-----------------------------------------------------------//   
         Scanner mens = new Scanner(System.in);
         int mens1 = mens.nextInt();
 
         int[] mensaje = new int[mens1];
-        final int tam_arr = mensaje.length;
+        final int tam_mens1 = mensaje.length;
         Random rnd = new Random();
 
-        int poten = 2;
+        final int POTEN = 2;
         int bitpar = 0;
-
+        
+        //MENSAJE***************************************************************
         hacerMensajeRandom(mensaje, rnd);
-
         System.out.println(Arrays.toString(mensaje));
 
-        calcularBitpar(poten, bitpar, tam_arr);
+        //SENDER****************************************************************
         
+        bitpar = calcularBitspar(POTEN, bitpar, tam_mens1);
+        System.out.println("Los bits de pariedad que usaremos son: " + bitpar);
+        
+        final int TAM_MENS2 = tam_mens1 + (bitpar + 1);
 
-        
+        System.out.println("El tamaño del array nuevo + bitpar es de :" 
+                + TAM_MENS2);
+        int[] mens2 = new int[TAM_MENS2];
+
 
     }//main
 
-    public static int calcularBitpar(int poten, int bitpar, final int tam_arr) {
-        while (Math.pow(poten, bitpar) < bitpar + (tam_arr + 1)) {
+    public static int calcularBitspar(final int POTEN, int bitpar, 
+            final int tam_mens1) {
+        while (Math.pow(POTEN, bitpar) < bitpar + tam_mens1 + 1) {
             bitpar++;
-        }
-         System.out.println("Los bits de pariedad para tu mensajes son: " 
-                 + bitpar);
+        }//while  
         return bitpar;
     }
 
